@@ -33,12 +33,12 @@ subroutine mexfunction(nlhs, plhs, nrhs, prhs)
   allocate(cj(nj),xj(nj))
 
   call mxCopyPtrToReal8(mxGetPr(prhs(1)), xj, nj)
-  !call mxCopyPtrToInteger4(mxGetPr(prhs(2)),iflag,1)
-  call mxCopyPtrToReal8(mxGetPr(prhs(2)), eps, 1)
+  call mxCopyPtrToInteger4(mxGetPr(prhs(2)),iflag,1)
+  call mxCopyPtrToReal8(mxGetPr(prhs(3)), eps, 1)
   !call mxCopyPtrToInteger4(mxGetPr(prhs(4)),ms,1)
   !ms1=int(ms)
   allocate(fk(nj))
-  call mxCopyPtrToComplex16(mxGetPr(prhs(3)),mxGetPi(prhs(3)), fk, nj)
+  call mxCopyPtrToComplex16(mxGetPr(prhs(4)),mxGetPi(prhs(4)), fk, nj)
   !iflag1=int(iflag)
   
   !print *,'iflag=',iflag
