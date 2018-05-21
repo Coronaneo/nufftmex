@@ -6,13 +6,13 @@ OS = $(shell uname)
 
 ALLOBJ = dfft.o dfftpack.o dirft1d.o dirft2d.o dirft3d.o next235.o nufft1df90.o 
 
-all : ${ALLOBJ} nufft1d1multi_mex.mex 
+all : ${ALLOBJ} nufft1dIInyumex.mex 
 
-nufft1d1multi_mex.mex: nufft1d1multi_mex.F90
-	${MEX} ${FLAGS} nufft1d1multi_mex.F90 $(ALLOBJ)
+nufft1dIInyumex.mex: nufft1dIInyumex.F90
+	${MEX} ${FLAGS} nufft1dIInyumex.F90 $(ALLOBJ)
 
 
-LINK_MACRO = $< nufft1d1multi.o -o $@
+LINK_MACRO = $< nufft1dIInyumex.o -o $@
 
 clean : 
 	rm -f *.a

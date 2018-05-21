@@ -16,7 +16,7 @@ subroutine mexfunction(nlhs, plhs, nrhs, prhs)
 
   ! input variable
   real*8 eps
-  integer*4 iflag,ms
+  integer iflag,ms
   real*8, allocatable ::  xj(:)
   complex*16, allocatable ::  fk(:)
 
@@ -33,12 +33,12 @@ subroutine mexfunction(nlhs, plhs, nrhs, prhs)
   allocate(cj(nj),xj(nj))
 
   call mxCopyPtrToReal8(mxGetPr(prhs(1)), xj, nj)
-  call mxCopyPtrToInteger4(mxGetPr(prhs(2)),iflag,1)
-  call mxCopyPtrToReal8(mxGetPr(prhs(3)), eps, 1)
-  call mxCopyPtrToInteger4(mxGetPr(prhs(4)),ms,1)
+  !call mxCopyPtrToInteger4(mxGetPr(prhs(2)),iflag,1)
+  call mxCopyPtrToReal8(mxGetPr(prhs(2)), eps, 1)
+  !call mxCopyPtrToInteger4(mxGetPr(prhs(4)),ms,1)
   !ms1=int(ms)
   allocate(fk(nj))
-  call mxCopyPtrToComplex16(mxGetPr(prhs(5)),mxGetPi(prhs(5)), fk, nj)
+  call mxCopyPtrToComplex16(mxGetPr(prhs(3)),mxGetPi(prhs(3)), fk, nj)
   !iflag1=int(iflag)
   
   !print *,'iflag=',iflag
@@ -52,7 +52,7 @@ subroutine mexfunction(nlhs, plhs, nrhs, prhs)
 
   ! copy the output to the left-hand side
   call mxCopyComplex16ToPtr(cj, mxGetPr(plhs(1)),mxGetPi(plhs(1)),nj) 
-!  call mxCopyInteger4toPtr(iflag,mxGetPr(plhs(2)),1)
+  !call mxCopyReal8toPtr(iflag,mxGetPr(plhs(2)),1)
   deallocate(cj,xj,fk)
 
 end subroutine mexfunction

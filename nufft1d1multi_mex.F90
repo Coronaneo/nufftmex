@@ -42,7 +42,7 @@ subroutine mexfunction(nlhs, plhs, nrhs, prhs)
   plhs(1) = mxCreateDoubleMatrix(m, n, 0)
 
   do j=1,n
-     call nufft1d1f90(m,xj(:,j),cj(:,j)*v,1,eps,m,fk(:,j),ier)
+     call nufft1d1f90(m,xj(:,j),cj(:,j)*v,-1,eps,m,fk(:,j),ier)
   enddo
 
   ! copy the output to the left-hand side
