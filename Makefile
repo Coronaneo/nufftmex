@@ -8,7 +8,7 @@ ALLOBJ = dfft.o dfftpack.o dirft1d.o dirft2d.o dirft3d.o next235.o nufft1df90.o
 
 all : ${ALLOBJ} nufft1d1multi_mex.mex 
 
-nufft1dIInyumex.mex: nufft1d1multi_mex.F90
+nufft1d1multi_mex.mex: nufft1d1multi_mex.F90
 	${MEX} ${FLAGS} nufft1d1multi_mex.F90 $(ALLOBJ)
 
 
